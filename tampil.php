@@ -6,8 +6,9 @@
     <title>CRUD Mahasiswa - Daftar Mahasiswa</title>
 </head>
 <body>
-    <h1>Data Mahasiswa</h1>
-    <a href="tambah.php">Tambah Mahasiswa Baru</a> 
+    <h1>CRUD Mahasiswa - Daftar Mahasiswa</h1>
+    
+    <a href="tambah.php">Tambah Data Mahasiswa</a> 
     <table border="1">
         <tr>
             <th>ID</th>
@@ -17,7 +18,7 @@
             <th>Aksi</th>
         </tr>
         <?php
-        require 'database.php';
+        require 'database.php'; 
         
         $database = new Database($host, $user, $pass, $db); 
         
@@ -30,7 +31,7 @@
                 echo "<td>".$mahasiswa['nama']."</td>";
                 echo "<td>".$mahasiswa['alamat']."</td>";
                 echo "<td>".$mahasiswa['umur']."</td>";
-                echo "<td><a href='hapus.php?id=".$mahasiswa['id']."'>Hapus</a></td>"; 
+                echo "<td><a href='proses.php?hapus_id=".$mahasiswa['id']."'>Hapus</a></td>"; 
                 echo "</tr>";
             }
         } else {
@@ -40,5 +41,6 @@
     </table>
 
     <br>
-   
+    
+</body>
 </html>

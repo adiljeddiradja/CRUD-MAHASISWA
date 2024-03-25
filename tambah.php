@@ -6,54 +6,20 @@
     <title>CRUD Mahasiswa - Tambah Mahasiswa</title>
 </head>
 <body>
-    <h1>Tambah Data Mahasiswa</h1>
+    <h1>Tambah Mahasiswa Baru</h1>
     
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-        $nama = $_POST['nama'];
-        $alamat = $_POST['alamat'];
-        $umur = $_POST['umur'];
-
-       
-        require 'database.php';
-
-        $database = new Database($host, $user, $pass, $db); 
-        
-        
-        if($database->simpan($nama, $alamat, $umur)) {
-            echo "<script>alert('Mahasiswa berhasil ditambahkan');</script>";
-        } else {
-            echo "<script>alert('Gagal menambahkan mahasiswa');</script>";
-        }
-
-        echo "<script>window.location.href='tampil.php';</script>";
-        exit;
-    }
-    ?>
-
-   
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-        }
-    </style>
     <table>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="proses.php" method="post">
             <tr>
-                <th>Nama:</th>
+                <td><label for="nama">Nama:</label></td>
                 <td><input type="text" id="nama" name="nama" required></td>
             </tr>
             <tr>
-                <th>Alamat:</th>
+                <td><label for="alamat">Alamat:</label></td>
                 <td><input type="text" id="alamat" name="alamat" required></td>
             </tr>
             <tr>
-                <th>Umur:</th>
+                <td><label for="umur">Umur:</label></td>
                 <td><input type="number" id="umur" name="umur" required></td>
             </tr>
             <tr>
@@ -61,8 +27,9 @@
             </tr>
         </form>
     </table>
+    </form>
 
     <br>
-    
+    <a href="tampil.php">Kembali ke Daftar Mahasiswa</a> <
 </body>
 </html>
